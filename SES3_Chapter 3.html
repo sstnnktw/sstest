@@ -1,0 +1,1249 @@
+<SES pre Tablet>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SES3_Chapter 3</title>
+<style>
+
+/*-------- style หลัก --------*/
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        font-size: 16px;
+        display: flex;
+    }
+/*-------- style ของ class ses,chapter (header) --------*/
+    .ses {
+        background-color: #ffbda9;
+        padding: 25px;
+        text-align:center;
+        font-size: 24px;
+    }
+    .chapter {
+        background-color: #f9f4f2;
+        padding: 20px;
+        font-size: 20px;
+        text-align:center;
+    }
+/*-------- style ของหัวข้อ --------*/
+	.container {
+		display: grid;
+		grid-template-columns: auto auto 1fr;
+		grid-row-gap: 2px;
+		background-color: #FEE8DE;
+		width: auto;
+		padding: 15px;
+	}
+	.container2 {
+		display: grid;
+		grid-template-columns: auto auto 1fr;
+		grid-row-gap: 2px;
+		width: auto;
+	}
+	.num-col {
+		vertical-align: top;
+		padding: 1px 0px;
+	}
+	.r1 {
+		grid-column: 2 / 4;
+		padding-left: 5px;
+		vertical-align: top;
+	}
+	.r2 {
+		white-space: nowrap;
+		padding-left: 5px;
+		vertical-align: top;
+	}
+	.r3 {
+		padding-left: 10px;
+		vertical-align: top;
+	}
+	
+/*-------- style ของ frame (ระยะขอบแต่ละข้อ) --------*/	  
+	  .frame, .frame2, .frame3 {
+		padding-left: 40px;
+		padding-top: 40px;
+		padding-bottom: 40px;
+	  }
+	  .frame2 {
+		padding-left: 80px;
+	  }
+	  .frame3 {
+		padding-left: 110px;
+	  }
+    
+/*-------- style หลักของหัวและเนื้อหาตาราง --------*/    
+    table {
+        width: auto;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    table th, table td {
+        border: 1px solid #f2f2f2;
+    	font-weight: normal;
+        text-align: left;
+        padding: 10px;
+    }
+    table th {
+        background-color: #fcd4c3;
+        text-align: center;
+        position: sticky;
+    }
+    thead {
+        position: sticky;
+        top: 0;
+        background: #eee;
+    }
+/*-------- style ของตาราง ia0406 ซ่อนเส้นขอบ --------*/ 
+	.ia0406 td {
+		border: none;
+		padding-left: 0px;
+	}
+
+/*-------- หัวข้อย่อยๆในตาราง --------*/ 
+   #head11 {
+        padding: 15px;
+        background-color: #FEE8DE;
+    }
+   #head1 {
+        padding: 15px ;
+    }
+   #head2 { /* ข้อ 2.1, 2.2, 2.3, ... */
+        padding: 15px 35px;
+   }
+   #total {
+    	background-color: #FCF4F2;
+    }
+   #T {
+        text-align: right;
+    }
+   #remark {
+        text-align: center;
+        font-size:15px;
+        color: #FF0000;
+    }
+    
+/*-------- INPUT นอกตาราง --------*/
+    select, input {
+        height: 32px;
+        width: 250px;
+        padding: 6px;
+        box-sizing: border-box;
+        margin: 0 auto;
+        border: 1px solid #7F7F7F;
+    }
+    input {
+        text-align: right;
+    }
+    input.ia0406 {
+        width: 80px;
+    }
+    input.T {
+        width: 190px;
+    }
+    input.price, input.type, input.total {
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        text-align: right;
+        display: block;
+        font-size: 15px;
+        width: 80px;
+    }
+    input.type {
+        width: 150px;
+        text-align: left;
+    }
+    input.total {
+    	background-color: #fce9e3;
+        pointer-events: none;
+    }
+    input::placeholder {
+        font-size: 11px; /* เปลี่ยนขนาดอักษรตามที่ต้องการ */
+        color: #999; /* สีของ placeholder */
+    }
+    tfoot td {
+        font-weight: bold;
+    }
+    
+    /*--------------------------------*/
+
+    .nn {
+        background-color: #FFF9E7;
+        font-size: 15px;
+        padding: 10px;
+        padding-left: 20px;
+    }  
+    .nn2 {
+        background-color: #FFF9E7;
+        font-size: 15px;
+        padding: 10px;
+        padding-left: 60px;
+    }
+    .remark {
+        color: #FF0000;
+        font-size: 15px;
+        text-align:left;
+    }
+    .note {    
+        font-size: 18px;
+        background-color: #E2EFDA;
+        padding: 20px;
+        padding-left: 20px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+    .notebox {
+        height: 200px;    
+        font-size: 16px;
+        color: #FF0000;
+        background-color: #fff;
+        padding: 10px;
+        border: 1px solid #000;
+        margin-top: 10px;
+        white-space: pre-line; /* เพิ่ม white-space เพื่อให้เกิดการขึ้นบรรทัดใหม่เมื่อกด Enter */
+        overflow-y: auto; /* เพิ่ม scrollbar เมื่อข้อความยาวเกินขอบเขตของ notebox */
+    }
+    #outer{
+        width:100%;
+        text-align: center;
+    }
+    .inner{
+        display: inline-block;
+    }
+    
+    /*--------------------------------*/
+    
+    input[type="number"]::-webkit-outer-spin-button, 
+    input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+    input[type="number"] {
+    -moz-appearance: textfield;
+    }
+    
+</style>
+</head>
+<body>
+
+<!----------------------------------------------- HEADDING ----------------------------------------------->
+
+<div class="ses"> <b>การสำรวจภาวะเศรษฐกิจและสังคมของครัวเรือน<br>(แบบสำรวจรายได้ของครัวเรือน)</b> </div>
+
+<div class="chapter">
+    <b>ตอนที่ 3 การประกอบการเกษตร (ในรอบ 12 เดือนที่แล้ว)</b>
+    <div class="remark">
+        <u>remark</u>
+        <br><b>** เปิดให้บันทึกข้อมูลที่หัวหน้าครัวเรือน **</b>
+        <br>- ถ้าในครัวเรือนไม่ได้ประกอบการเกษตรเลยสามารถปล่อยว่างทั้งตอนได้
+        <br>- ช่องที่ให้ใส่จำนวนเงิน ข้อที่ไม่มีสามารถปล่อย blank ได้ แต่<b>บันทึกข้อมูล เป็น 0</b>
+    </div>
+</div>
+
+<!--------------------------------------------- IA02 --------------------------------------------->
+
+<div class="container">
+	<div class="num-col"><b>1.</b></div>
+	<div class="r1"><b>ชื่อและลำดับที่ของสมาชิกในครัวเรือนที่ประกอบการเกษตร</b> (ผู้รับผิดชอบสูงสุด)</div>
+</div>
+
+<div class="nn">
+	(ถ้ามีการทำการเกษตรแยกต่างหากจากกัน  ให้บันทึกชื่อแยกบรรทัดไม่เกิน 2 คน เรียงลำดับความสำคัญ)
+</div>
+  
+<div class="frame">
+	1.1
+    <select id="IA02A">
+        <option value="">-- เลือก --</option>
+        <option value="1">ลำดับที่ - ชื่อ_สกุล</option>
+        <option value="2">01 - นาย...</option>
+        <option value="3">02 - นาง...</option>
+        <option value="">.</option>
+        <option value="">.</option>
+        <option value="">.</option>
+    </select>
+	<span class="remark">
+		ขึ้นรายชื่อสมาชิกในครัวเรือน<b>ที่มีรหัสอาชีพและอุตสาหกรรมตรงตามเงื่อนไข</b>เป็นตัวเลือก
+	</span><br><br>
+	1.2
+    <select id="IA02B">
+        <option value="">-- เลือก --</option>
+        <option value="1">ลำดับที่ - ชื่อ_สกุล</option>
+        <option value="2">01 - นาย...</option>
+        <option value="3">02 - นาง...</option>
+        <option value="">.</option>
+        <option value="">.</option>
+        <option value="">.</option>
+    </select>
+    <span class="remark">
+		ขึ้นตัวเลือกตามข้อ 1.1 แต่<b>ตัดตัวเลือกที่เลือกไปแล้วออก</b>
+	</span><br><br>
+	
+    <span class="remark">
+		<b>ข้อ 1.1</b><br>
+		- บันทึก"ลำดับที่ของสมาชิก"เป็นตัวแปร <b>IA02A</b><br>
+		- บันทึก"คำนำหน้าชื่อ"เป็นตัวแปร <b>Title_3</b> และ <b>Title_T_3</b><br>
+		- บันทึก"ชื่อ"เป็นตัวแปร <b>FirstName_3</b><br>
+		- บันทึก"นามสกุล"เป็นตัวแปร <b>LastName_3</b><br><br>
+		<b>ข้อ 1.2</b><br>
+		- บันทึก"ลำดับที่ของสมาชิก"เป็นตัวแปร <b>IA02B</b><br>
+		- บันทึก"คำนำหน้าชื่อ"เป็นตัวแปร <b>Title_4</b> และ <b>Title_T_4</b><br>
+		- บันทึก"ชื่อ"เป็นตัวแปร <b>FirstName_4</b><br>
+		- บันทึก"นามสกุล"เป็นตัวแปร <b>LastName_4</b>
+	</span><br>
+</div>
+
+<!--------------------------------------------- IA03_1 --------------------------------------------->
+
+<div class="container">
+	<div class="num-col"><b>2.</b></div>
+	<div class="r1"><b>ประเภทของการประกอบการเกษตร</b></div>
+</div>
+
+<div class="nn">
+	(ถ้ามีมากกว่า 3 ประเภท ให้บันทึกเรียงลำดับความสำคัญ)
+</div>
+  
+<div class="frame">
+	2.1
+    <input id="IA03_1A" placeholder="IA03_1A">
+	<img src="https://cdn.pixabay.com/photo/2015/12/08/17/40/magnifying-glass-1083378_640.png" width="25" height="25" style="position: relative; left: 10px; top: 8px;"><br><br>
+	2.2
+    <input id="IA03_1B" placeholder="IA03_1B">
+	<img src="https://cdn.pixabay.com/photo/2015/12/08/17/40/magnifying-glass-1083378_640.png" width="25" height="25" style="position: relative; left: 10px; top: 8px;"><br><br>
+	2.3
+    <input id="IA03_1C" placeholder="IA03_1C">
+	<img src="https://cdn.pixabay.com/photo/2015/12/08/17/40/magnifying-glass-1083378_640.png" width="25" height="25" style="position: relative; left: 10px; top: 8px;"><br><br>
+	
+    <span class="remark">
+		<b>(มี consis เช็ครหัสอุตสาหกรรม ต้องเป็นรหัสเกษตรเท่านั้น)</b>
+	</span><br>
+</div>
+
+<!--------------------------------------------- IA04 - IA06 --------------------------------------------->
+
+<div class="container">
+	<div class="num-col"><b>3.</b></div>
+	<div class="r1"><b>พื้นที่ทำการเกษตรทั้งหมด</b> (ของครัวเรือน)</div>
+</div>
+  
+<div class="frame">
+	<table class="ia0406">
+		<tr>
+			<td>3.1 เป็นเจ้าของ/ที่ดินของพ่อแม่ญาติพี่น้อง</td>
+			<td><input class="ia0406" id="IA04A" type="number" placeholder="IA04A"> ไร่</td>
+			<td><input class="ia0406" id="IA04B" type="number" placeholder="IA04B"> ตารางวา</td>
+		</tr>
+		<tr>
+			<td>3.2 ที่ดินเช่าจากผู้อื่น</td>
+			<td><input class="ia0406" id="IA05A" type="number" placeholder="IA05A"> ไร่</td>
+			<td><input class="ia0406" id="IA05B" type="number" placeholder="IA05B"> ตารางวา</td>
+		</tr>
+		<tr>
+			<td>3.3 ที่ดินสาธารณะ/อื่น ๆ (ระบุ)</td>
+			<td><input class="ia0406" id="IA06A" type="number" placeholder="IA06A"> ไร่</td>
+			<td><input class="ia0406" id="IA06B" type="number" placeholder="IA06B"> ตารางวา</td>
+		</tr>
+		<tr>
+			<td id = "T">ระบุ</td>
+			<td colspan = 2 ><input id="IA06_T" class = "T" type="text" placeholder="IA06_T"></td>
+		</tr>
+	</table>
+	<span class="remark">
+		ช่องระบุเพิ่ม (IA06_T) จะเปิดให้บันทึกได้ก็ต่อเมื่อมีการบันทึก IA06A หรือ IA06B
+	</span>
+</div>
+
+<!--------------------------------------------- IA07 --------------------------------------------->
+
+<div class="container">
+	<div class="num-col"><b>4.</b></div>
+	<div class="r1"><b>จำนวนสมาชิกในครัวเรือนที่ทำงานในการเกษตรนี้</b></div>
+</div>
+
+<div class="nn">
+	(<b>รวม</b> ผู้ประกอบการ)
+</div>
+  
+<div class="frame">  
+	<input class="ia0406" id="IA07" type="number" placeholder="IA07"> คน
+</div>
+
+<!--------------------------------------------- IA0810 --------------------------------------------->
+
+<div class="container">
+	<div class="num-col"><b>5.</b></div>
+	<div class="r1"><b>รายได้จาก "การให้เช่าสัตว์ใช้งาน/เครื่องมือที่ใช้ในการเกษตร หรือค่าบริการด้านการเกษตร และบริการสัตวบาลอื่น ๆ"</b> (เป็นตัวเงินหรือสิ่งของ)</div>
+</div>
+  
+<div class="frame">  
+	<table>
+		<tr>
+		  <th style="min-width:200px;" rowspan = "3"><b>รายการ</b></th>
+		  <th rowspan = "3"><b>ได้รับ<br>เป็นเงิน</b></th>
+		  <th colspan = "7"><b>ได้รับเป็นสิ่งของหรือผลผลิต</b></th>
+		</tr>
+		<tr>
+		  <th colspan = "3"><b>รวม</b></th>
+		  <th colspan = "2"><b>นำไปขาย</b></th>
+		  <th colspan = "2"><b>บริโภคและอื่น ๆ</b></th>
+		</tr>
+		<tr>
+		  <th><b>ชนิดของ<br>พืชผล/สิ่งของ</b></th>
+		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>มูลค่า</b></th>
+		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>มูลค่า</b></th>
+		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>มูลค่า</b></th>
+		</tr>
+		<tr>
+			<td colspan="3"></td>
+            <td colspan="2" id="remark">โปรแกรมคำนวณให้</td>
+			<td colspan="4"></td>
+		</tr>
+		<tr>
+			<td>
+				<div class="container2">
+					<div class="num-col">5.1</div>
+					<div class="r1">ให้เช่าสัตว์ใช้งาน/</div>
+					<div class="num-col"></div>
+					<div class="r1">เครื่องมือเพื่อการเกษตร</div>
+				</div>
+			</td>
+			<td><input class="price" id="IA08_1" type="number" placeholder="IA08_1"></td>
+			<td><input class="type" id="IA0910T_1" type="text" placeholder="IA0910T_1"></td>
+			<td id="total"><input class="total" id="IA0910Q_1" type="number" placeholder="IA0910Q_1"></td>
+			<td id="total"><input class="total" id="IA0910V_1" type="number" placeholder="IA0910V_1"></td>
+			<td><input class="price" id="IA09Q_1" type="number" placeholder="IA09Q_1"></td>
+			<td><input class="price" id="IA09_1" type="number" placeholder="IA09_1"></td>
+			<td><input class="price" id="IA10Q_1" type="number" placeholder="IA10Q_1"></td>
+			<td><input class="price" id="IA10_1" type="number" placeholder="IA10_1"></td>
+		</tr>
+		<tr>
+			<td>
+				<div class="container2">
+					<div class="num-col">5.2</div>
+					<div class="r1">ให้บริการทางการเกษตรฯ/</div>
+					<div class="num-col"></div>
+					<div class="r1" style="font-size: 12px;">
+						(เช่น รับจ้างไถนาด้วยรถแทรกเตอร์<br>
+						รับจ้างฟักไข่/ผสมพันธุ์สัตว์ ฯลฯ)
+					</div>
+				</div>
+			</td>
+			<td><input class="price" id="IA08_2" type="number" placeholder="IA08_2"></td>
+			<td><input class="type" id="IA0910T_2" type="text" placeholder="IA0910T_2"></td>
+			<td id="total"><input class="total" id="IA0910Q_2" type="number" placeholder="IA0910Q_2"></td>
+			<td id="total"><input class="total" id="IA0910V_2" type="number" placeholder="IA0910V_2"></td>
+			<td><input class="price" id="IA09Q_2" type="number" placeholder="IA09Q_2"></td>
+			<td><input class="price" id="IA09_2" type="number" placeholder="IA09_2"></td>
+			<td><input class="price" id="IA10Q_2" type="number" placeholder="IA10Q_2"></td>
+			<td><input class="price" id="IA10_2" type="number" placeholder="IA10_2"></td>
+		</tr>
+		<tr>
+			<td id="total" style="text-align: right;">
+				<b>รวมเงิน/มูลค่า</b>
+				<br><span class="remark">(โปรแกรมคำนวณให้)</span>
+			</td>
+			<td id="total"><input class="total" id="IA08" type="number" placeholder="IA08"></td>
+			<td id="total" colspan="3"></td>
+			<td id="total"></td>
+			<td id="total"><input class="total" id="IA09" type="number" placeholder="IA09"></td>
+			<td id="total"></td>
+			<td id="total"><input class="total" id="IA10" type="number" placeholder="IA10"></td>
+		</tr>
+	</table>
+</div>
+
+<!--------------------------------------------- IA1114 --------------------------------------------->
+
+<div class="container">
+	<div class="num-col"><b>6.</b></div>
+	<div class="r2"><i>(การปลูกพืช/ทำป่าไม้)</i></div>
+	<div class="r3"><b>ให้บันทึก"ปริมาณ" และ "มูลค่า" ของผลผลิตแต่ละประเภท จากการปลูกพืช/ทำป่าไม้</b></div>
+  
+	<div class="num-col"></div>
+	<div class="r2"></div>
+	<div class="r3"><b>จำแนกตามการนำไปใช้ประโยชน์</b> (<b>ไม่รวม</b> ผลผลิตที่เสียหาย)</div>
+</div>
+  
+<div class="frame">  
+	<table>
+		<tr>
+		  <th rowspan = "2"><b>ประเภทผลผลิต</b></th>
+		  <th colspan = "2"><b>ผลผลิตที่ได้ทั้งหมด</b></th>
+		  <th colspan = "2"><b>ขาย</b></th>
+		  <th colspan = "2"><b>บริโภคในครัวเรือน</b></th>
+		  <th colspan = "2">
+			<span style="font-size: 12px;">
+				<b>อื่น ๆ (จ่ายค่าจ้าง/ค่าเช่า เลี้ยงสัตว์/ทำพันธุ์<br>ชำระหนี้ ให้บุคคลอื่นนอกครัวเรือน)</b>
+			</span>
+		  </th>
+		</tr>
+		<tr>
+		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>มูลค่า</b></th>
+		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>มูลค่า</b></th>
+		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>มูลค่า</b></th>
+		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>มูลค่า</b></th>
+		</tr>
+		<tr>
+			<td></td>
+            <td colspan="2" id="remark">โปรแกรมคำนวณให้</td>
+			<td colspan="6"></td>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA1114T_1" type="text" placeholder="IA1114T_1"></td>
+			<td id="total"><input class="total" id="IA11Q_1" type="number" placeholder="IA11Q_1"></td>
+			<td id="total"><input class="total" id="IA11_1" type="number" placeholder="IA11_1"></td>
+			<td><input class="price" id="IA12Q_1" type="number" placeholder="IA12Q_1"></td>
+			<td><input class="price" id="IA12_1" type="number" placeholder="IA12_1"></td>
+			<td><input class="price" id="IA13Q_1" type="number" placeholder="IA13Q_1"></td>
+			<td><input class="price" id="IA13_1" type="number" placeholder="IA13_1"></td>
+			<td><input class="price" id="IA14Q_1" type="number" placeholder="IA14Q_1"></td>
+			<td><input class="price" id="IA14_1" type="number" placeholder="IA14_1"></td>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA1114T_2" type="text" placeholder="IA1114T_2"></td>
+			<td id="total"><input class="total" id="IA11Q_2" type="number" placeholder="IA11Q_2"></td>
+			<td id="total"><input class="total" id="IA11_2" type="number" placeholder="IA11_2"></td>
+			<td><input class="price" id="IA12Q_2" type="number" placeholder="IA12Q_2"></td>
+			<td><input class="price" id="IA12_2" type="number" placeholder="IA12_2"></td>
+			<td><input class="price" id="IA13Q_2" type="number" placeholder="IA13Q_2"></td>
+			<td><input class="price" id="IA13_2" type="number" placeholder="IA13_2"></td>
+			<td><input class="price" id="IA14Q_2" type="number" placeholder="IA14Q_2"></td>
+			<td><input class="price" id="IA14_2" type="number" placeholder="IA14_2"></td>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA1114T_3" type="text" placeholder="IA1114T_3"></td>
+			<td id="total"><input class="total" id="IA11Q_3" type="number" placeholder="IA11Q_3"></td>
+			<td id="total"><input class="total" id="IA11_3" type="number" placeholder="IA11_3"></td>
+			<td><input class="price" id="IA12Q_3" type="number" placeholder="IA12Q_3"></td>
+			<td><input class="price" id="IA12_3" type="number" placeholder="IA12_3"></td>
+			<td><input class="price" id="IA13Q_3" type="number" placeholder="IA13Q_3"></td>
+			<td><input class="price" id="IA13_3" type="number" placeholder="IA13_3"></td>
+			<td><input class="price" id="IA14Q_3" type="number" placeholder="IA14Q_3"></td>
+			<td><input class="price" id="IA14_3" type="number" placeholder="IA14_3"></td>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA1114T_4" type="text" placeholder="IA1114T_4"></td>
+			<td id="total"><input class="total" id="IA11Q_4" type="number" placeholder="IA11Q_4"></td>
+			<td id="total"><input class="total" id="IA11_4" type="number" placeholder="IA11_4"></td>
+			<td><input class="price" id="IA12Q_4" type="number" placeholder="IA12Q_4"></td>
+			<td><input class="price" id="IA12_4" type="number" placeholder="IA12_4"></td>
+			<td><input class="price" id="IA13Q_4" type="number" placeholder="IA13Q_4"></td>
+			<td><input class="price" id="IA13_4" type="number" placeholder="IA13_4"></td>
+			<td><input class="price" id="IA14Q_4" type="number" placeholder="IA14Q_4"></td>
+			<td><input class="price" id="IA14_4" type="number" placeholder="IA14_4"></td>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA1114T_5" type="text" placeholder="IA1114T_5"></td>
+			<td id="total"><input class="total" id="IA11Q_5" type="number" placeholder="IA11Q_5"></td>
+			<td id="total"><input class="total" id="IA11_5" type="number" placeholder="IA11_5"></td>
+			<td><input class="price" id="IA12Q_5" type="number" placeholder="IA12Q_5"></td>
+			<td><input class="price" id="IA12_5" type="number" placeholder="IA12_5"></td>
+			<td><input class="price" id="IA13Q_5" type="number" placeholder="IA13Q_5"></td>
+			<td><input class="price" id="IA13_5" type="number" placeholder="IA13_5"></td>
+			<td><input class="price" id="IA14Q_5" type="number" placeholder="IA14Q_5"></td>
+			<td><input class="price" id="IA14_5" type="number" placeholder="IA14_5"></td>
+		</tr>
+		<tr>
+			<td id="total" style="text-align: right;">
+				<b>รวมมูลค่า</b>
+				<br><span class="remark">(โปรแกรมคำนวณให้)</span>
+			</td>
+			<td id="total"></td>
+			<td id="total"><input class="total" id="IA11" type="number" placeholder="IA11"></td>
+			<td id="total"></td>
+			<td id="total"><input class="total" id="IA12" type="number" placeholder="IA12"></td>
+			<td id="total"></td>
+			<td id="total"><input class="total" id="IA13" type="number" placeholder="IA13"></td>
+			<td id="total"></td>
+			<td id="total"><input class="total" id="IA14" type="number" placeholder="IA14"></td>
+		</tr>
+	</table>
+</div>
+
+<!--------------------------------------------- IA1518 --------------------------------------------->
+
+<div class="container">
+	<div class="num-col"><b>7.</b></div>
+	<div class="r2"><i>(การเลี้ยงสัตว์)</i></div>
+	<div class="r3">
+		<b>ให้บันทึก"ปริมาณ" และ "มูลค่า" ของสัตว์ที่เลี้ยง</b> (<b>รวม</b> ใช้ทำพันธุ์ ใช้งาน) 
+		<b>และผลผลิตที่ได้</b> (เช่น นม ไข่ ไหม มูลสัตว์ ฯลฯ)
+	</div>
+  
+	<div class="num-col"></div>
+	<div class="r2"></div>
+	<div class="r3"><b>จำแนกตามการนำไปใช้ประโยชน์</b> (<b>ไม่รวม</b> สัตว์ที่ตายและผลผลิตที่เสียหาย)</div>
+</div>
+  
+<div class="frame">  
+	<table>
+		<tr>
+		  <th rowspan = "2"><b>สัตว์และผลผลิต</b></th>
+		  <th colspan = "2"><b>สัตว์และผลผลิต<br>ที่ได้ทั้งหมด</b></th>
+		  <th colspan = "2"><b>ขาย</b></th>
+		  <th colspan = "2"><b>บริโภคในครัวเรือน</b></th>
+		  <th colspan = "2"><span style="font-size: 12px;"><b>อื่น ๆ (จ่ายค่าจ้าง/ค่าเช่า เลี้ยงสัตว์/ทำพันธุ์ ชำระหนี้ ให้บุคคลอื่นนอกครัวเรือน)</b></span></th>
+		</tr>
+		<tr>
+		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>มูลค่า</b></th>
+		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>มูลค่า</b></th>
+		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>มูลค่า</b></th>
+		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>มูลค่า</b></th>
+		</tr>
+		<tr>
+			<td></td>
+            <td colspan="2" id="remark">โปรแกรมคำนวณให้</td>
+			<td colspan="6"></td>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA1518T_1" type="text" placeholder="IA1518T_1"></td>
+			<td id="total"><input class="total" id="IA15Q_1" type="number" placeholder="IA15Q_1"></td>
+			<td id="total"><input class="total" id="IA15_1" type="number" placeholder="IA15_1"></td>
+			<td><input class="price" id="IA16Q_1" type="number" placeholder="IA16Q_1"></td>
+			<td><input class="price" id="IA16_1" type="number" placeholder="IA16_1"></td>
+			<td><input class="price" id="IA17Q_1" type="number" placeholder="IA17Q_1"></td>
+			<td><input class="price" id="IA17_1" type="number" placeholder="IA17_1"></td>
+			<td><input class="price" id="IA18Q_1" type="number" placeholder="IA18Q_1"></td>
+			<td><input class="price" id="IA18_1" type="number" placeholder="IA18_1"></td>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA1518T_2" type="text" placeholder="IA1518T_2"></td>
+			<td id="total"><input class="total" id="IA15Q_2" type="number" placeholder="IA15Q_2"></td>
+			<td id="total"><input class="total" id="IA15_2" type="number" placeholder="IA15_2"></td>
+			<td><input class="price" id="IA16Q_2" type="number" placeholder="IA16Q_2"></td>
+			<td><input class="price" id="IA16_2" type="number" placeholder="IA16_2"></td>
+			<td><input class="price" id="IA17Q_2" type="number" placeholder="IA17Q_2"></td>
+			<td><input class="price" id="IA17_2" type="number" placeholder="IA17_2"></td>
+			<td><input class="price" id="IA18Q_2" type="number" placeholder="IA18Q_2"></td>
+			<td><input class="price" id="IA18_2" type="number" placeholder="IA18_2"></td>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA1518T_3" type="text" placeholder="IA1518T_3"></td>
+			<td id="total"><input class="total" id="IA15Q_3" type="number" placeholder="IA15Q_3"></td>
+			<td id="total"><input class="total" id="IA15_3" type="number" placeholder="IA15_3"></td>
+			<td><input class="price" id="IA16Q_3" type="number" placeholder="IA16Q_3"></td>
+			<td><input class="price" id="IA16_3" type="number" placeholder="IA16_3"></td>
+			<td><input class="price" id="IA17Q_3" type="number" placeholder="IA17Q_3"></td>
+			<td><input class="price" id="IA17_3" type="number" placeholder="IA17_3"></td>
+			<td><input class="price" id="IA18Q_3" type="number" placeholder="IA18Q_3"></td>
+			<td><input class="price" id="IA18_3" type="number" placeholder="IA18_3"></td>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA1518T_4" type="text" placeholder="IA1518T_4"></td>
+			<td id="total"><input class="total" id="IA15Q_4" type="number" placeholder="IA15Q_4"></td>
+			<td id="total"><input class="total" id="IA15_4" type="number" placeholder="IA15_4"></td>
+			<td><input class="price" id="IA16Q_4" type="number" placeholder="IA16Q_4"></td>
+			<td><input class="price" id="IA16_4" type="number" placeholder="IA16_4"></td>
+			<td><input class="price" id="IA17Q_4" type="number" placeholder="IA17Q_4"></td>
+			<td><input class="price" id="IA17_4" type="number" placeholder="IA17_4"></td>
+			<td><input class="price" id="IA18Q_4" type="number" placeholder="IA18Q_4"></td>
+			<td><input class="price" id="IA18_4" type="number" placeholder="IA18_4"></td>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA1518T_5" type="text" placeholder="IA1518T_5"></td>
+			<td id="total"><input class="total" id="IA15Q_5" type="number" placeholder="IA15Q_5"></td>
+			<td id="total"><input class="total" id="IA15_5" type="number" placeholder="IA15_5"></td>
+			<td><input class="price" id="IA16Q_5" type="number" placeholder="IA16Q_5"></td>
+			<td><input class="price" id="IA16_5" type="number" placeholder="IA16_5"></td>
+			<td><input class="price" id="IA17Q_5" type="number" placeholder="IA17Q_5"></td>
+			<td><input class="price" id="IA17_5" type="number" placeholder="IA17_5"></td>
+			<td><input class="price" id="IA18Q_5" type="number" placeholder="IA18Q_5"></td>
+			<td><input class="price" id="IA18_5" type="number" placeholder="IA18_5"></td>
+		</tr>
+		<tr>
+			<td id="total" style="text-align: right;">
+				<b>รวมมูลค่า</b>
+				<br><span class="remark">(โปรแกรมคำนวณให้)</span>
+			</td>
+			<td id="total"></td>
+			<td id="total"><input class="total" id="IA15" type="number" placeholder="IA15"></td>
+			<td id="total"></td>
+			<td id="total"><input class="total" id="IA16" type="number" placeholder="IA16"></td>
+			<td id="total"></td>
+			<td id="total"><input class="total" id="IA17" type="number" placeholder="IA17"></td>
+			<td id="total"></td>
+			<td id="total"><input class="total" id="IA18" type="number" placeholder="IA18"></td>
+		</tr>
+	</table>
+</div>
+
+<!--------------------------------------------- IA19 --------------------------------------------->
+
+<div class="container">
+	<div class="num-col"><b>8.</b></div>
+	<div class="r2"><i>(การเลี้ยงสัตว์ ในข้อ 7)</i></div>
+	<div class="r3"><b>ให้บันทึกจำนวนสัตว์ที่มีอยู่</b> (ณ วันแรกในรอบ 12 เดือนที่แล้ว)</div>
+</div>
+  
+<div class="frame">  
+	<table>
+		<tr>
+		  <th><b>สัตว์</b></th>
+		  <th><b>จำนวน</b></th>
+		  <th><b>มูลค่า</b></th>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA19T_1" type="number" placeholder="IA19T_1"></td>
+			<td><input class="price" id="IA19Q_1" type="number" placeholder="IA19Q_1"></td>
+			<td><input class="price" id="IA19_1" type="number" placeholder="IA19_1"></td>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA19T_2" type="number" placeholder="IA19T_2"></td>
+			<td><input class="price" id="IA19Q_2" type="number" placeholder="IA19Q_2"></td>
+			<td><input class="price" id="IA19_2" type="number" placeholder="IA19_2"></td>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA19T_3" type="number" placeholder="IA19T_3"></td>
+			<td><input class="price" id="IA19Q_3" type="number" placeholder="IA19Q_3"></td>
+			<td><input class="price" id="IA19_3" type="number" placeholder="IA19_3"></td>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA19T_4" type="number" placeholder="IA19T_4"></td>
+			<td><input class="price" id="IA19Q_4" type="number" placeholder="IA19Q_4"></td>
+			<td><input class="price" id="IA19_4" type="number" placeholder="IA19_4"></td>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA19T_5" type="number" placeholder="IA19T_5"></td>
+			<td><input class="price" id="IA19Q_5" type="number" placeholder="IA19Q_5"></td>
+			<td><input class="price" id="IA19_5" type="number" placeholder="IA19_5"></td>
+		</tr>
+		<tr>
+			<td id="total" style="text-align: right;">
+				<b>รวมมูลค่า</b>
+				<br><span class="remark">(โปรแกรมคำนวณให้)</span>
+			</td>
+			<td id="total"></td>
+			<td id="total"><input class="total" id="IA19" type="number" placeholder="IA19"></td>
+		</tr>
+	</table>
+</div>
+
+<!--------------------------------------------- IA2023 --------------------------------------------->
+
+<div class="container">
+	<div class="num-col"><b>9.</b></div>
+	<div class="r2"><i>(การเพาะเลี้ยงสัตว์น้ำ/ประมง/ล่าสัตว์/หาของป่า)</i></div>
+	<div class="r3"><b>ให้บันทึก"ปริมาณ" และ "มูลค่า" ของผลผลิตสัตว์น้ำ สัตว์ของป่า</b> (เช่น ฟืน เห็ด หน่อไม้ ฯลฯ)</div>
+  
+	<div class="num-col"></div>
+	<div class="r2"></div>
+	<div class="r3"><b>จำแนกตามการนำไปใช้ประโยชน์</b> (<b>ไม่รวม</b> ผลผลิตที่เสียหาย)</div>
+</div>
+  
+<div class="frame">  
+	<table>
+		<tr>
+		  <th rowspan = "2"><b>ประเภทผลผลิต</b></th>
+		  <th colspan = "2"><b>ผลผลิตที่ได้ทั้งหมด</b></th>
+		  <th colspan = "2"><b>ขาย</b></th>
+		  <th colspan = "2"><b>บริโภคในครัวเรือน</b></th>
+		  <th colspan = "2"><span style="font-size: 12px;"><b>อื่น ๆ (จ่ายค่าจ้าง/ค่าเช่า เลี้ยงสัตว์/ทำพันธุ์<br>ชำระหนี้ ให้บุคคลอื่นนอกครัวเรือน)</b></span></th>
+		</tr>
+		<tr>
+		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>มูลค่า</b></th>
+		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>มูลค่า</b></th>
+		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>มูลค่า</b></th>
+		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>มูลค่า</b></th>
+		</tr>
+		<tr>
+			<td></td>
+            <td colspan="2" id="remark">โปรแกรมคำนวณให้</td>
+			<td colspan="6"></td>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA2023T_1" type="text" placeholder="IA2023T_1"></td>
+			<td id="total"><input class="total" id="IA20Q_1" type="number" placeholder="IA20Q_1"></td>
+			<td id="total"><input class="total" id="IA20_1" type="number" placeholder="IA20_1"></td>
+			<td><input class="price" id="IA21Q_1" type="number" placeholder="IA21Q_1"></td>
+			<td><input class="price" id="IA21_1" type="number" placeholder="IA21_1"></td>
+			<td><input class="price" id="IA22Q_1" type="number" placeholder="IA22Q_1"></td>
+			<td><input class="price" id="IA22_1" type="number" placeholder="IA22_1"></td>
+			<td><input class="price" id="IA23Q_1" type="number" placeholder="IA23Q_1"></td>
+			<td><input class="price" id="IA23_1" type="number" placeholder="IA23_1"></td>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA2023T_2" type="text" placeholder="IA2023T_2"></td>
+			<td id="total"><input class="total" id="IA20Q_2" type="number" placeholder="IA20Q_2"></td>
+			<td id="total"><input class="total" id="IA20_2" type="number" placeholder="IA20_2"></td>
+			<td><input class="price" id="IA21Q_2" type="number" placeholder="IA21Q_2"></td>
+			<td><input class="price" id="IA21_2" type="number" placeholder="IA21_2"></td>
+			<td><input class="price" id="IA22Q_2" type="number" placeholder="IA22Q_2"></td>
+			<td><input class="price" id="IA22_2" type="number" placeholder="IA22_2"></td>
+			<td><input class="price" id="IA23Q_2" type="number" placeholder="IA23Q_2"></td>
+			<td><input class="price" id="IA23_2" type="number" placeholder="IA23_2"></td>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA2023T_3" type="text" placeholder="IA2023T_3"></td>
+			<td id="total"><input class="total" id="IA20Q_3" type="number" placeholder="IA20Q_3"></td>
+			<td id="total"><input class="total" id="IA20_3" type="number" placeholder="IA20_3"></td>
+			<td><input class="price" id="IA21Q_3" type="number" placeholder="IA21Q_3"></td>
+			<td><input class="price" id="IA21_3" type="number" placeholder="IA21_3"></td>
+			<td><input class="price" id="IA22Q_3" type="number" placeholder="IA22Q_3"></td>
+			<td><input class="price" id="IA22_3" type="number" placeholder="IA22_3"></td>
+			<td><input class="price" id="IA23Q_3" type="number" placeholder="IA23Q_3"></td>
+			<td><input class="price" id="IA23_3" type="number" placeholder="IA23_3"></td>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA2023T_4" type="text" placeholder="IA2023T_4"></td>
+			<td id="total"><input class="total" id="IA20Q_4" type="number" placeholder="IA20Q_4"></td>
+			<td id="total"><input class="total" id="IA20_4" type="number" placeholder="IA20_4"></td>
+			<td><input class="price" id="IA21Q_4" type="number" placeholder="IA21Q_4"></td>
+			<td><input class="price" id="IA21_4" type="number" placeholder="IA21_4"></td>
+			<td><input class="price" id="IA22Q_4" type="number" placeholder="IA22Q_4"></td>
+			<td><input class="price" id="IA22_4" type="number" placeholder="IA22_4"></td>
+			<td><input class="price" id="IA23Q_4" type="number" placeholder="IA23Q_4"></td>
+			<td><input class="price" id="IA23_4" type="number" placeholder="IA23_4"></td>
+		</tr>
+		<tr>
+			<td><input class="type" id="IA2023T_5" type="text" placeholder="IA2023T_5"></td>
+			<td id="total"><input class="total" id="IA20Q_5" type="number" placeholder="IA20Q_5"></td>
+			<td id="total"><input class="total" id="IA20_5" type="number" placeholder="IA20_5"></td>
+			<td><input class="price" id="IA21Q_5" type="number" placeholder="IA21Q_5"></td>
+			<td><input class="price" id="IA21_5" type="number" placeholder="IA21_5"></td>
+			<td><input class="price" id="IA22Q_5" type="number" placeholder="IA22Q_5"></td>
+			<td><input class="price" id="IA22_5" type="number" placeholder="IA22_5"></td>
+			<td><input class="price" id="IA23Q_5" type="number" placeholder="IA23Q_5"></td>
+			<td><input class="price" id="IA23_5" type="number" placeholder="IA23_5"></td>
+		</tr>
+		<tr>
+			<td id="total" style="text-align: right;">
+				<b>รวมมูลค่า</b>
+				<br><span class="remark">(โปรแกรมคำนวณให้)</span>
+			</td>
+			<td id="total"></td>
+			<td id="total"><input class="total" id="IA20" type="number" placeholder="IA20"></td>
+			<td id="total"></td>
+			<td id="total"><input class="total" id="IA21" type="number" placeholder="IA21"></td>
+			<td id="total"></td>
+			<td id="total"><input class="total" id="IA22" type="number" placeholder="IA22"></td>
+			<td id="total"></td>
+			<td id="total"><input class="total" id="IA23" type="number" placeholder="IA23"></td>
+		</tr>
+	</table>
+</div>
+
+<!------------------------------------------------------------------------------------------>
+
+<div class="container">
+	<div class="num-col"><b>10.</b></div>
+	<div class="r1">
+		<i>(ในรอบ 12 เดือนที่แล้ว)</i> <b>ค่าใช้จ่ายในการประกอบการเกษตรทั้งหมด (ในข้อ 5 - 9)</b> 
+		(จ่ายเป็นเงิน หรือสิ่งของ หรือได้รับความช่วยเหลือ)
+	</div>
+
+	<div class="num-col"></div>
+	<div class="r2"><b>ไม่รวม</b></div>
+	<div class="r3">
+		1. ค่าใช้จ่ายที่ได้ใช้ไปแล้วใน<u>ฤดูการผลิตใหม่ ที่ยังไม่ให้ผลผลิต</u><br>
+		2. ค่าใช้จ่ายในการซื้อสัตว์ใช้งาน/ทำพันธุ์ หรือเครื่องมือเครื่องใช้ประเภทสินทรัพย์ เช่น รถแทรกเตอร์ เครื่องสูบน้ำ ฯลฯ
+	</div>
+</div>
+
+  
+<div class="frame">  
+	<table>
+		<tr>
+		  <th rowspan = "3"><b>ค่าใช้จ่าย</b></th>
+		  <th rowspan = "3"><b>ซื้อ/จ่ายเป็นเงิน</b></th>
+		  <th colspan = "3"><b>ไม่ได้ซื้อ/จ่ายเป็นเงิน <br><span style="font-size: 14px;">(ใช้ผลผลิตของตนเอง ได้รับความช่วยเหลือ)</b></span></th>
+		</tr>
+		<tr>
+		  <th rowspan = "2"><b>ชนิดของ<br>พืชผล/สิ่งของ</b></th>
+		  <th colspan = "2"><b>มูลค่า</b></th>
+		</tr>
+		<tr>
+		  <th><b>ผลผลิตของตนเอง</b></th>
+		  <th><b>ได้รับความช่วยเหลือ</b></th>
+		</tr>
+		
+		<tr>
+			<td>
+				<div class="container2">
+					<div class="num-col">10.1</div>
+					<div class="r1">
+						(ประเมิน) ค่าเช่าที่ดินของตนเอง/พ่อแม่ญาติพี่น้อง<br>
+						ที่ดินสาธารณะที่ใช้ในการเกษตร <span style="font-size: 14px;">(<b>รวม</b>ที่ใช้ฟรี)</span>
+					</div>
+				</div>
+			</td>
+			<td id="total"></td>
+			<td id="total"></td>
+			<td colspan="2"><input class="price" id="IA24" type="number" placeholder="IA24"></td>
+		</tr>
+		
+		<tr>
+			<td>
+				<div class="container2">
+					<div class="num-col">10.2</div>
+					<div class="r1">ค่าเช่าที่ดินที่ใช้ในการเกษตร</div>
+				</div>
+			</td>
+			<td><input class="price" id="IA2502" type="number" placeholder="IA2502"></td>
+			<td><input class="type" id="IA102T" type="number" placeholder="IA102T"></td>
+			<td><input class="price" id="IA2602" type="number" placeholder="IA2602"></td>
+			<td><input class="price" id="IA2702" type="number" placeholder="IA2702"></td>
+		</tr>
+		<tr>			
+			<td>
+				<div class="container2">
+					<div class="num-col">10.3</div>
+					<div class="r1">
+						ค่าซื้อ/ซ่อมแซม/เช่าเครื่องมือเครื่องใช้<br>
+						ค่าเช่าสัตว์ใช้งาน (<b>ไม่รวม</b> ค่าจ้างคนขับ)<br>
+						<span style="font-size: 14px;">(เช่น มีด จอบ เสียม ค่าเช่ารถแทรกเตอร์ ค่าเช่าวัว/ควาย ฯลฯ)</span>
+					</div>
+				</div>
+			</td>
+			<td><input class="price" id="IA2503" type="number" placeholder="IA2503"></td>
+			<td><input class="type" id="IA103T" type="number" placeholder="IA103T"></td>
+			<td><input class="price" id="IA2603" type="number" placeholder="IA2603"></td>
+			<td><input class="price" id="IA2703" type="number" placeholder="IA2703"></td>
+		</tr>
+		<tr>
+			<td>
+				<div class="container2">
+					<div class="num-col">10.4</div>
+					<div class="r1">ค่าเชื้อเพลิง ไฟฟ้า น้ำชลประทาน น้ำมัน ฯลฯ</div>
+				</div>
+			</td>
+			<td><input class="price" id="IA2504" type="number" placeholder="IA2504"></td>
+			<td><input class="type" id="IA104T" type="number" placeholder="IA104T"></td>
+			<td><input class="price" id="IA2604" type="number" placeholder="IA2604"></td>
+			<td><input class="price" id="IA2704" type="number" placeholder="IA2704"></td>
+		</tr>
+		<tr>
+			<td>
+				<div class="container2">
+					<div class="num-col">10.5</div>
+					<div class="r1">ค่าปุ๋ย ยาฆ่าแมลง ยาฆ่าเชื้อรา ยาทำลายวัชพืช ฯลฯ</div>
+				</div>
+			</td>
+			<td><input class="price" id="IA2505" type="number" placeholder="IA2505"></td>
+			<td><input class="type" id="IA105T" type="number" placeholder="IA105T"></td>
+			<td><input class="price" id="IA2605" type="number" placeholder="IA2605"></td>
+			<td><input class="price" id="IA2705" type="number" placeholder="IA2705"></td>
+		</tr>
+		<tr>
+			<td>
+				<div class="container2">
+					<div class="num-col">10.6</div>
+					<div class="r1">
+						ค่าเมล็ดพันธุ์พืช  พันธุ์สัตว์<br>
+						<span style="font-size: 14px;">(ลูกเป็ด ลูกปลา และลูกสัตว์อื่น ๆ) (<b>รวม</b> ไข่ที่ใช้เพาะฟัก)</span>
+					</div>
+				</div>
+			</td>
+			<td><input class="price" id="IA2506" type="number" placeholder="IA2506"></td>
+			<td><input class="type" id="IA106T" type="number" placeholder="IA106T"></td>
+			<td><input class="price" id="IA2606" type="number" placeholder="IA2606"></td>
+			<td><input class="price" id="IA2706" type="number" placeholder="IA2706"></td>
+		</tr>
+		<tr>
+			<td>
+				<div class="container2">
+					<div class="num-col">10.7</div>
+					<div class="r1">
+						ค่าอาหารสัตว์ <span style="font-size: 14px;">(<b>รวม</b> เมล็ดพืชที่ใช้เลี้ยงสัตว์ผลิตได้เอง)</span>
+					</div>
+				</div>
+			</td>
+			<td><input class="price" id="IA2507" type="number" placeholder="IA2507"></td>
+			<td><input class="type" id="IA107T" type="number" placeholder="IA107T"></td>
+			<td><input class="price" id="IA2607" type="number" placeholder="IA2607"></td>
+			<td><input class="price" id="IA2707" type="number" placeholder="IA2707"></td>
+		</tr>
+		<tr>
+			<td>
+				<div class="container2">
+					<div class="num-col">10.8</div>
+					<div class="r1">
+						ค่าจ้างคนงาน <span style="font-size: 14px;">(<b>รวม</b> ค่าอาหารที่จัดเลี้ยงผู้มาช่วยทำการเกษตร)</span>
+					</div>
+				</div>
+			</td>
+			<td><input class="price" id="IA2508" type="number" placeholder="IA2508"></td>
+			<td><input class="type" id="IA108T" type="number" placeholder="IA108T"></td>
+			<td><input class="price" id="IA2608" type="number" placeholder="IA2608"></td>
+			<td><input class="price" id="IA2708" type="number" placeholder="IA2708"></td>
+		</tr>
+		<tr>
+			<td>
+				<div class="container2">
+					<div class="num-col">10.9</div>
+					<div class="r1">
+						ค่าใช้จ่ายอื่น ๆ เช่น ค่าภาษีที่ดิน ดอกเบี้ยเงินกู้<br>
+						ค่าขนส่งผลผลิต และอื่น ๆ
+					</div>
+				</div>
+			</td>
+			<td><input class="price" id="IA2509" type="number" placeholder="IA2509"></td>
+			<td><input class="type" id="IA109T" type="number" placeholder="IA109T"></td>
+			<td><input class="price" id="IA2609" type="number" placeholder="IA2609"></td>
+			<td><input class="price" id="IA2709" type="number" placeholder="IA2709"></td>
+		</tr>
+		<tr>
+			<td id="total" style="text-align: right;">
+				<span class="remark">(โปรแกรมคำนวณให้)</span> <b>รวม 10.2 - 10.9</b>
+			</td>
+			<td id="total"><input class="total" id="IA25" type="number" placeholder="IA25"></td>
+			<td id="total"></td>
+			<td id="total"><input class="total" id="IA26" type="number" placeholder="IA26"></td>
+			<td id="total"><input class="total" id="IA27" type="number" placeholder="IA27"></td>
+		</tr>
+	</table>
+</div>
+
+<!--------------------------------------------- IA19 --------------------------------------------->
+
+<div class="container">
+	<div class="num-col"><b>11.</b></div>
+	<div class="r2"><i>(เดือนที่แล้ว)</i></div>
+	<div class="r3"><b>"รายรับ"  และ "ค่าใช้จ่าย"  จากการประกอบการเกษตร</b> (ทั้งที่เป็นตัวเงินและสิ่งของ)</div>
+</div>
+  
+<div class="frame">
+	<table class="ia0406">
+		<tr>
+			<td>รายรับ</td>
+			<td><input class="ia0406" id="IA28" type="number" placeholder="IA28"> บาท</td>
+		</tr>
+		<tr>
+			<td>ค่าใช้จ่าย</td>
+			<td><input class="ia0406" id="IA29" type="number" placeholder="IA29"> บาท</td>
+		</tr>
+		<tr>
+			<td id = "T">IA28 - IA29</td>
+			<td colspan = 2 >
+				<input id="IA2829" class = "ia0406" style="background-color: #fce9e3;" type="number" placeholder="IA2829" disabled> บาท 
+				<span class="remark">(โปรแกรมคำนวณให้)</span>
+			</td>
+		</tr>
+	</table>
+	<span class="remark">
+		คำนวณ IA28 - IA29 แสดงค่าให้ตรวจสอบ (ไม่สามารถแก้ไขได้)
+	</span>
+</div>
+
+<!------------------------------------------------------------------------------------------>
+
+  
+  
+
+
+
+<!-------------------------------------------- NOTE -------------------------------------------->
+
+<div class="note">
+	<b>NOTE :</b>
+  <span class="remark">SES3.2_NOTE</span>
+	<div id="ses3.2_note" class="notebox" contenteditable="true">*** เพิ่มฟังก์ชันพิมพ์ด้วยเสียง ***</div>
+</div>
+
+<div id="outer">
+  <div class="inner"><button onclick="back()">Back</button></div>
+  <div class="inner"><button onclick="index()">Index</button></div>
+  <div class="inner"><button onclick="next()">Next</button></div>
+</div>
+
+<button onclick="resetLocalStorage()">Reset localStorage</button>
+
+<!----------------------------------------------------------------------------------------------------------->
+
+
+<script>
+
+<!-------------------------------------------------------------------------->
+
+function IA06T() {
+    let ia06a = document.getElementById("IA06A").value;
+    let ia06b = document.getElementById("IA06B").value;
+    let ia06t = document.getElementById("IA06_T");
+
+	if (ia06a.trim() || ia06b.trim()) {
+        ia06t.style.pointerEvents = 'auto';
+        ia06t.style.backgroundColor = "#FFFFFF";
+    } else {
+        ia06t.style.pointerEvents = 'none';
+        ia06t.style.backgroundColor = "#EEEEEE";
+        ia06t.value = '';
+    }
+}
+
+<!-------------------------------------------------------------------------->
+
+function IA2829() {
+    let ia28 = parseFloat(document.getElementById("IA28").value) || 0;
+    let ia29 = parseFloat(document.getElementById("IA29").value) || 0;
+    let ia2829 = document.getElementById("ia2829");
+
+    let diff = ia28 - ia29;
+	if (diff === 0) {
+		ia2829.value = "";
+	} else {
+		ia2829.value = diff;
+	}
+}
+
+<!-------------------------------------------------------------------------->
+
+function updateSum() {
+    var sum = 0;
+    for (var i = 0; i < arguments.length - 1; i++) {
+        var value = parseInt(document.getElementById(arguments[i]).value) || 0;
+        sum += value;
+    }
+    var outputId = arguments[arguments.length - 1];
+    if (sum != 0) {
+        document.getElementById(outputId).value = sum;
+    } else {
+        document.getElementById(outputId).value = "";
+    }
+}
+
+<!-------------------------------------------------------------------------->
+
+function allF() {
+	IA06T();
+	updateSum('IA08_1', 'IA08_2', 'IA08');
+	updateSum('IA09_1', 'IA09_2', 'IA09');
+	updateSum('IA10_1', 'IA10_2', 'IA10');
+	updateSum('IA09Q_1', 'IA10Q_1', 'IA0910Q_1');
+	updateSum('IA09Q_2', 'IA10Q_2', 'IA0910Q_2');
+	updateSum('IA09_1', 'IA10_1', 'IA0910V_1');
+	updateSum('IA09_2', 'IA10_2', 'IA0910V_2');
+
+	updateSum('IA12Q_1', 'IA13Q_1','IA14Q_1', 'IA11Q_1');
+	updateSum('IA12Q_2', 'IA13Q_2','IA14Q_2', 'IA11Q_2');
+	updateSum('IA12Q_3', 'IA13Q_3','IA14Q_3', 'IA11Q_3');
+	updateSum('IA12Q_4', 'IA13Q_4','IA14Q_4', 'IA11Q_4');
+	updateSum('IA12Q_5', 'IA13Q_5','IA14Q_5', 'IA11Q_5');
+	updateSum('IA12_1', 'IA13_1','IA14_1', 'IA11_1');
+	updateSum('IA12_2', 'IA13_2','IA14_2', 'IA11_2');
+	updateSum('IA12_3', 'IA13_3','IA14_3', 'IA11_3');
+	updateSum('IA12_4', 'IA13_4','IA14_4', 'IA11_4');
+	updateSum('IA12_5', 'IA13_5','IA14_5', 'IA11_5');
+	updateSum('IA11_1', 'IA11_2','IA11_3', 'IA11_4', 'IA11_5', 'IA11');
+	updateSum('IA12_1', 'IA12_2', 'IA12_3', 'IA12_4', 'IA12_5', 'IA12');
+	updateSum('IA13_1', 'IA13_2', 'IA13_3', 'IA13_4', 'IA13_5', 'IA13');
+	updateSum('IA14_1', 'IA14_2', 'IA14_3', 'IA14_4', 'IA14_5', 'IA14');
+
+	updateSum('IA16Q_1', 'IA17Q_1','IA18Q_1', 'IA15Q_1');
+	updateSum('IA16Q_2', 'IA17Q_2','IA18Q_2', 'IA15Q_2');
+	updateSum('IA16Q_3', 'IA17Q_3','IA18Q_3', 'IA15Q_3');
+	updateSum('IA16Q_4', 'IA17Q_4','IA18Q_4', 'IA15Q_4');
+	updateSum('IA16Q_5', 'IA17Q_5','IA18Q_5', 'IA15Q_5');
+	updateSum('IA16_1', 'IA17_1','IA18_1', 'IA15_1');
+	updateSum('IA16_2', 'IA17_2','IA18_2', 'IA15_2');
+	updateSum('IA16_3', 'IA17_3','IA18_3', 'IA15_3');
+	updateSum('IA16_4', 'IA17_4','IA18_4', 'IA15_4');
+	updateSum('IA16_5', 'IA17_5','IA18_5', 'IA15_5');	
+	updateSum('IA15_1', 'IA15_2', 'IA15_3', 'IA15_4', 'IA15_5', 'IA15');
+	updateSum('IA16_1', 'IA16_2', 'IA16_3', 'IA16_4', 'IA16_5', 'IA16');
+	updateSum('IA17_1', 'IA17_2', 'IA17_3', 'IA17_4', 'IA17_5', 'IA17');
+	updateSum('IA18_1', 'IA18_2', 'IA18_3', 'IA18_4', 'IA18_5', 'IA18');
+	
+	updateSum('IA19_1', 'IA19_2', 'IA19_3', 'IA19_4', 'IA19_5', 'IA19');
+	
+	updateSum('IA21Q_1', 'IA22Q_1', 'IA23Q_1', 'IA20Q_1');
+	updateSum('IA21Q_2', 'IA22Q_2', 'IA23Q_2', 'IA20Q_2');
+	updateSum('IA21Q_3', 'IA22Q_3', 'IA23Q_3', 'IA20Q_3');
+	updateSum('IA21Q_4', 'IA22Q_4', 'IA23Q_4', 'IA20Q_4');
+	updateSum('IA21Q_5', 'IA22Q_5', 'IA23Q_5', 'IA20Q_5');
+	updateSum('IA21_1', 'IA22_1','IA23_1', 'IA20_1');
+	updateSum('IA21_2', 'IA22_2','IA23_2', 'IA20_2');
+	updateSum('IA21_3', 'IA22_3','IA23_3', 'IA20_3');
+	updateSum('IA21_4', 'IA22_4','IA23_4', 'IA20_4');
+	updateSum('IA21_5', 'IA22_5','IA23_5', 'IA20_5');	
+	updateSum('IA20_1', 'IA20_2', 'IA20_3', 'IA20_4', 'IA20_5', 'IA20');
+	updateSum('IA21_1', 'IA21_2', 'IA21_3', 'IA21_4', 'IA21_5', 'IA21');
+	updateSum('IA22_1', 'IA22_2', 'IA22_3', 'IA22_4', 'IA22_5', 'IA22');
+	updateSum('IA23_1', 'IA23_2', 'IA23_3', 'IA23_4', 'IA23_5', 'IA23');
+	
+	updateSum('IA2502', 'IA2503', 'IA2504', 'IA2505', 'IA2506', 'IA2507', 'IA2508', 'IA2509', 'IA25');
+	updateSum('IA2602', 'IA2603', 'IA2604', 'IA2605', 'IA2606', 'IA2607', 'IA2608', 'IA2609', 'IA26');
+	updateSum('IA2702', 'IA2703', 'IA2704', 'IA2705', 'IA2706', 'IA2707', 'IA2708', 'IA2709', 'IA27');
+	IA2829();
+}
+
+<!--------------------------------------------------------------------->
+
+function back() {
+    saveToLocalStorage();
+    window.location.href = 'Chapter 4 - part 3.html';}
+
+<!--------------------------------------------------------------------->
+
+function index() {
+    saveToLocalStorage();
+    window.location.href = 'index.html';}
+<!--------------------------------------------------------------------->
+
+function next() {
+    saveToLocalStorage();
+    window.location.href = 'SUMMARY.html';}
+
+<!--------------------------------------------------------------------->
+
+    var elements = document.querySelectorAll("[id]");
+    var inputIds = Array.from(elements).map(function(element) {
+        return element.id;
+    });
+    
+<!--------------------------------------------------------------------->
+
+function saveToLocalStorage() {
+    inputIds.forEach(function(id) {
+        localStorage.setItem(id, document.getElementById(id).value);
+    });
+}
+
+<!--------------------------------------------------------------------->
+
+function resetLocalStorage() {
+    localStorage.clear();
+    alert("localStorage has been reset.");
+
+    window.location.reload();
+}
+
+<!-------------------------------->
+
+window.onload = function() {
+    inputIds.forEach(function(id) {
+        var inputField = document.getElementById(id);
+        inputField.addEventListener('input', function() {
+        saveToLocalStorage();
+        allF();       
+        });
+
+        var value = localStorage.getItem(id);
+        if (value !== null) {
+            inputField.value = value;
+        } else {
+            inputField.value = "";
+        }
+    });
+    saveToLocalStorage();
+    allF();
+};
+
+</script>
+</body>
+</html>
