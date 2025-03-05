@@ -142,7 +142,7 @@
     input.T {
         width: 190px;
     }
-    input.price, input.type, input.total {
+    input.price, input.type, input.total, input.Q, input.QT {
         border-radius: 4px;
         border: 1px solid #ddd;
         text-align: right;
@@ -151,12 +151,14 @@
         width: 80px;
     }
     input.type {
-        width: 150px;
-        text-align: left;
+        width: 120px;
     }
-    input.total {
+    input.total, input.QT {
     	background-color: #fce9e3;
         pointer-events: none;
+    }
+    input.Q, input.QT {
+        width: 45px;
     }
     input::placeholder {
         font-size: 11px; /* เปลี่ยนขนาดอักษรตามที่ต้องการ */
@@ -382,26 +384,34 @@
 		<tr>
 		  <th style="min-width:200px;" rowspan = "3"><b>รายการ</b></th>
 		  <th rowspan = "3"><b>ได้รับ<br>เป็นเงิน</b></th>
-		  <th colspan = "7"><b>ได้รับเป็นสิ่งของหรือผลผลิต</b></th>
+		  <th colspan = "8"><b>ได้รับเป็นสิ่งของหรือผลผลิต</b></th>
 		</tr>
 		<tr>
-		  <th colspan = "3"><b>รวม</b></th>
+		  <th colspan = "4"><b>รวม</b></th>
 		  <th colspan = "2"><b>นำไปขาย</b></th>
 		  <th colspan = "2"><b>บริโภคและอื่น ๆ</b></th>
 		</tr>
 		<tr>
 		  <th><b>ชนิดของ<br>พืชผล/สิ่งของ</b></th>
-		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>หน่วย</b></th>
+		  <th><b>ปริมาณ</b></th>
 		  <th><b>มูลค่า</b></th>
-		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>ปริมาณ</b></th>
 		  <th><b>มูลค่า</b></th>
-		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>ปริมาณ</b></th>
 		  <th><b>มูลค่า</b></th>
 		</tr>
 		<tr>
-			<td colspan="3"></td>
-            <td colspan="2" id="remark">โปรแกรมคำนวณให้</td>
-			<td colspan="4"></td>
+			<td></td>
+			<td id="remark"> IA08_x</td>
+			<td id="remark"> IA0910T_x</td>
+			<td id="remark"> IA0910QT_x</td>
+			<td id="remark"> IA0910Q_x</td>
+			<td id="remark"> IA0910V_x</td>
+			<td id="remark"> IA09Q_x</td>
+			<td id="remark"> IA09V_x</td>
+			<td id="remark"> IA10Q_x</td>
+			<td id="remark"> IA10V_x</td>
 		</tr>
 		<tr>
 			<td>
@@ -414,11 +424,12 @@
 			</td>
 			<td><input class="price" id="IA08_1" type="number" placeholder="IA08_1"></td>
 			<td><input class="type" id="IA0910T_1" type="text" placeholder="IA0910T_1"></td>
-			<td id="total"><input class="total" id="IA0910Q_1" type="number" placeholder="IA0910Q_1"></td>
+			<td><input class="type" id="IA0910QT_1" type="number" placeholder="ระบุหน่วย"></td>
+			<td id="total"><input class="QT" id="IA0910Q_1" type="number" placeholder="IA0910Q_1"></td>
 			<td id="total"><input class="total" id="IA0910V_1" type="number" placeholder="IA0910V_1"></td>
-			<td><input class="price" id="IA09Q_1" type="number" placeholder="IA09Q_1"></td>
+			<td><input class="Q" id="IA09Q_1" type="number" placeholder="IA09Q_1"></td>
 			<td><input class="price" id="IA09_1" type="number" placeholder="IA09_1"></td>
-			<td><input class="price" id="IA10Q_1" type="number" placeholder="IA10Q_1"></td>
+			<td><input class="Q" id="IA10Q_1" type="number" placeholder="IA10Q_1"></td>
 			<td><input class="price" id="IA10_1" type="number" placeholder="IA10_1"></td>
 		</tr>
 		<tr>
@@ -435,11 +446,12 @@
 			</td>
 			<td><input class="price" id="IA08_2" type="number" placeholder="IA08_2"></td>
 			<td><input class="type" id="IA0910T_2" type="text" placeholder="IA0910T_2"></td>
-			<td id="total"><input class="total" id="IA0910Q_2" type="number" placeholder="IA0910Q_2"></td>
+			<td><input class="type" id="IA0910QT_2" type="number" placeholder="ระบุหน่วย"></td>
+			<td id="total"><input class="QT" id="IA0910Q_2" type="number" placeholder="IA0910Q_2"></td>
 			<td id="total"><input class="total" id="IA0910V_2" type="number" placeholder="IA0910V_2"></td>
-			<td><input class="price" id="IA09Q_2" type="number" placeholder="IA09Q_2"></td>
+			<td><input class="Q" id="IA09Q_2" type="number" placeholder="IA09Q_2"></td>
 			<td><input class="price" id="IA09_2" type="number" placeholder="IA09_2"></td>
-			<td><input class="price" id="IA10Q_2" type="number" placeholder="IA10Q_2"></td>
+			<td><input class="Q" id="IA10Q_2" type="number" placeholder="IA10Q_2"></td>
 			<td><input class="price" id="IA10_2" type="number" placeholder="IA10_2"></td>
 		</tr>
 		<tr>
@@ -449,6 +461,7 @@
 			</td>
 			<td id="total"><input class="total" id="IA08" type="number" placeholder="IA08"></td>
 			<td id="total" colspan="3"></td>
+			<td id="total"></td>
 			<td id="total"></td>
 			<td id="total"><input class="total" id="IA09" type="number" placeholder="IA09"></td>
 			<td id="total"></td>
@@ -473,6 +486,7 @@
 	<table>
 		<tr>
 		  <th rowspan = "2"><b>ประเภทผลผลิต</b></th>
+		  <th colspan = "2"><b>หน่วย</b></th>
 		  <th colspan = "2"><b>ผลผลิตที่ได้ทั้งหมด</b></th>
 		  <th colspan = "2"><b>ขาย</b></th>
 		  <th colspan = "2"><b>บริโภคในครัวเรือน</b></th>
@@ -483,13 +497,13 @@
 		  </th>
 		</tr>
 		<tr>
-		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>ปริมาณ</b></th>
 		  <th><b>มูลค่า</b></th>
-		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>ปริมาณ</b></th>
 		  <th><b>มูลค่า</b></th>
-		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>ปริมาณ</b></th>
 		  <th><b>มูลค่า</b></th>
-		  <th><b>ปริมาณ/<br>หน่วย</b></th>
+		  <th><b>ปริมาณ</b></th>
 		  <th><b>มูลค่า</b></th>
 		</tr>
 		<tr>
